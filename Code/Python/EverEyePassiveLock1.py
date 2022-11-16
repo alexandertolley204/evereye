@@ -107,7 +107,7 @@ def serialFunction(serialPort):
     lockCheck = False
 
 if __name__ == '__main__':
-    serialDevice = serial.Serial(port='COM4', baudrate=9600)
+    serialDevice = serial.Serial(port='', baudrate=9600) #Use Arduino IDE to determine port name
     context = zmq.Context()
     socket = context.socket(zmq.REP)
     socket.bind("tcp://*:5555")
