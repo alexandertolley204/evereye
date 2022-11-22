@@ -3,11 +3,13 @@
 
 ## Overview
 
-placeholder
+_**placeholder**_
 
 ## Experience Gained during Project
 
-placeholder
+_**placeholder**_
+
+---
 
 ## Requirements
 
@@ -69,6 +71,8 @@ _All major functionalities can be performed with only one lock unit, but certain
 * MySQL Server
 
 * _Optional_: Python-Compatable IDE
+
+---
 
 ## Instructions
 
@@ -321,15 +325,17 @@ _All major functionalities can be performed with only one lock unit, but certain
 
 ### Packaging
 
-* Placeholder
+_**placeholder**_
 
 ### Running
 
-* Run RunAll.py to start both lock programs and the GUI program
+_**placeholder**_
+
+---
 
 ## Future Improvements
 
-Placeholder
+_**placeholder**_
 
 ## Authors
 
