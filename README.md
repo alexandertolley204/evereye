@@ -1,26 +1,56 @@
 
-# EverEye Security Suite
-
-## Overview
-
-_**placeholder**_
-
-## Experience Gained during Project
-
-_**placeholder**_
+# ***EverEye Security Suite***
 
 ---
 
-## Requirements
+# Overview
 
-### Hardware
+The EverEye Security Suite is a combination of hardware and software that can secure physical locations and log entries into those locations into an external database. In order to access a  secured location, a authorized user must have a valid RFID key and its associated password. EverEye is comprised of 3 primary components, an Arduino-based physical lock unit, a MySQL database, and a number of Python programs that control the lock's connection to the database and allow an administrator access to the database.
 
-_Note that this project assumes 2 lock units are present._ \
-_All major functionalities can be performed with only one lock unit, but certain features will require 2._
+The component that the majority of users will interact with the most is the physical lock unit. This unit is build around an Arduino Mega MicroController, which was chosen due to its abundance of connections. Connected to the Arduino are an RFID Scanner where a user will scan an RFID tag, a 4x4 Keypad where the user will enter in their password, an LCD I2C Display that will show information to the user about the current status of the lock unit, and the solenoid lock itself. Alongside the solenoid lock are a relay to handle signals and a 9V Adaptor with a plug attachment for power.
+
+The database is built on MySQL and tracks two primary entities. The first entity is Users, which represent people that have been authorized to access the location secured by the security suite. The second entity is Logs, which represent any attempted entry that occurs at a lock unit. Additional entities tracked are the lock units themselves and the permissions that each user has in relation to each lock.
+
+There are two Python-based programs that will be running on the connected computer. The first is the passive lock program that connects the lock unit to the database. This program must be actively running on the same system where the database is installed in order for the lock unit to function. There are two version of this program included; one for each lock.
+
+The second program is a GUI program that allows a systems administrator to access and interact with the database. With this program, the administrator can add, edit, and delete users, access and export entry logs based on three filters (lock, user, and date), and open locks. The GUI program does not directly interact with any lock unit; it instead communicates with the passive program to perform actions related to the lock unit.
+
+There is one more Python file included that runs both passive lock programs and the GUI program at once. It is there for convenience's sake.
+
+# Experience Gained during Project
+
+I have gained a lot of experience over the course of creating this project, both in fields that I've had prior knowledge in and fields that were new to me.
+
+Experience in fields that I've had prior knowledge in include:
+
+* Python
+* C++
+* Databases
+  * MySQL
+* Electronics Assembly
+* GUI Design
+
+Experience in fields that were either completely or relatively new to me include:
+
+* MicroControllers
+  * Arduino
+* Serial Connections
+* Socket Communication
+* GUI Construction
+  * TKinter
+
+---
+
+# Requirements
+
+## Hardware
+
+*Note that this project assumes 2 lock units are present.* \
+*All major functionalities can be performed with only one lock unit, but certain features will require 2.*
 
 * Lock Components
 
-  * Arduino Mega or Clone
+  * Arduino Mega MicroController or Clone
 
   * RFID Scanner
 
@@ -38,19 +68,19 @@ _All major functionalities can be performed with only one lock unit, but certain
 
   * 11 Male-To-Female Jumper Wires
 
-  * Solderless Breadboard _(The smaller, the better)_
+  * Solderless Breadboard *(The smaller, the better)*
 
-  * _Optional_: Lock Unit Case
+  * Serial-To-USB Cable
+
+  * *Optional*: Lock Unit Case
 
 * Other Components
 
-  * USB-To-Serial Cable
-
-  * RFID Tag
+  * RFID Tags
 
   * Windows Computer
 
-### Software
+## Software
 
 * Arduino IDE
 
@@ -70,15 +100,15 @@ _All major functionalities can be performed with only one lock unit, but certain
 
 * MySQL Server
 
-* _Optional_: Python-Compatable IDE
+* *Optional*: Python-Compatible IDE
 
 ---
 
-## Instructions
+# Instructions
 
-### Setting Up
+## Setting Up
 
-### _Hardware_
+## *Hardware*
 
 1. Ensure that the following materials are on hand:
 
@@ -120,7 +150,7 @@ _All major functionalities can be performed with only one lock unit, but certain
       | SCK | 52 |
       | MOSI | 51 |
       | MISO | 50 |
-      | IRQ | _N/A_ |
+      | IRQ | *N/A* |
       | GND | GND |
       | RST | 8 |
       | 3.3V | 3.3V |
@@ -205,7 +235,7 @@ _All major functionalities can be performed with only one lock unit, but certain
 
     * Insert the (+) wire from the 9V Adapter into the Black Wire of the Solenoid Lock
 
-### _Software_
+## *Software*
 
 1. Download the Contents of this Git Repository
 
@@ -231,7 +261,7 @@ _All major functionalities can be performed with only one lock unit, but certain
 
     * Upload the Code to the Arduino Mega
 
-    * _Optional_: Upload the Code to the Second Arduino
+    * *Optional*: Upload the Code to the Second Arduino
 
 3. Set up the Python Software
 
@@ -307,43 +337,77 @@ _All major functionalities can be performed with only one lock unit, but certain
 
     * In the definition connectToDatabase(), add in your chosen MySQL username and password
 
-      * Lines 9 & 10
+      * These will be on lines 9 & 10
 
       * If you did not specify a username during setup, the username will be "root"
 
+    ![EverEye Passive Lock Database Connection](./Images/PassiveLockCode.png)
+
     * Move down to line 110 and type in the port name see in the Arduino IDE where indicated
 
-    * Perform the same for EverEyePassiveLock2.py if you've assembled a second lock, making sure that the port name is for said lock and not the first unit
+    ![EverEye Passive Lock Serial Connection](./Images/PassiveLockSerial.png)
+
+    * Perform the same for EverEyePassiveLock2.py if you've assembled a second lock
+
+       * The port name will be different for the second lock; make sure you do not accidentally copy the same port name
 
     * Open up EverEyeProgram.py in your editor of choice
 
     * In the definition connectToDatabase(), add in your chosen MySQL username and password
 
-      * Lines 9 & 10
+      * These will be on lines 16 & 17
 
       * If you did not specify a username during setup, the username will be "root"
 
-### Packaging
+    ![EverEye Program Database Connection](./Images/ProgramCode.png)
 
-_**placeholder**_
+## *Packaging*
 
-### Running
-
-_**placeholder**_
+***Placeholder***
 
 ---
 
-## Future Improvements
+## Running
 
-_**placeholder**_
+## *Lock Unit*
 
-## Authors
+***Placeholder***
+
+## *GUI Program*
+
+***Placeholder***
+
+---
+
+# Future Improvements
+
+There are many improvements that, given the time and resources, I would like to implement into this project. They have been sorted in order of assumed priority:
+
+* Replace the Serial connection with a more robust and versatile protocol
+  * This would likely make other improvements possible, if not easier
+  * Would likely require an external connection module for the Arduino, as well as a dedicated power supply, rather than the Serial-to-USB connection currently used
+* Allow for dynamic addition and removal of lock units
+  * Right now, the GUI is designed to detect and acknowledge 2 different locks
+  * In order to add additional locks, the code of the GUI must be modified
+  * Replacing the Serial connection currently used will likely make this easier to implement
+* Improve the filtering capability of the GUI program in regards to logs
+  * There are currently only 3 filters: lock, user, and time
+  * Allowing for the inclusion of sub-filters would make organizing large amounts of data more manageable
+* Add in wireless capability to the lock unit
+  * This would allow the lock unit to communicate with both the physical lock and the server without needing a physical connection to either
+  * This would greatly improve the usability of the security suite
+  * Such capability would also come with a need for greater security in terms of the code itself
+
+# Authors
 
 Designed by Alexander James Tolley
 
-## Acknowledgments
+Icons by Freepix: <https://www.flaticon.com/authors/freepik>
 
-* Advisors
-  * Jason Isaacs
-  * Reza Abdolee
-* Freepik
+# Acknowledgments
+
+I would like to thank my Capstone Advisor, Professor Jason Isaacs, for his assistance and advice during the creation of this project. He has provided invaluable aid both in the formulation of this project and its design, including providing many of the hardware components that make up the lock unit as well as emphasizing the multi-lock functionality and lock export capability of the security suite.
+
+I would also like to thank my former Capstone Advisor, Professor Reza Abdolee, for initially taking me on for the Capstone Project and recommending me Professor Jason Isaacs as a better fit for my expertise.
+
+Finally, I would like to thank all of my other professor that I've had during my time at California State University Channel Islands. It is thanks to you all that I was able to reach this point.
