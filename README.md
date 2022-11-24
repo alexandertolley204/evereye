@@ -52,31 +52,61 @@ Experience in fields that were either completely or relatively new to me include
 
   * Arduino Mega MicroController or Clone
 
+  ![Arduino Mega](./Images/Arduino.png)
+
   * RFID Scanner
+
+  ![RFID Scanner](./Images/RFIDScanner.png)
 
   * 4x4 Keypad
 
-  * LCD I2C
+  ![Keypad](./Images/Keypad.png)
 
-  * Relay
+  * LCD I2C Display
 
-  * 9-Volt Power Adaptor
+  ![LCD Front](./Images/LCDFront.png)
+
+  ![LCD Back](./Images/LCDBack.png)
+
+  * One-Channel Relay Module
+
+  ![Relay](./Images/Relay.png)
+
+  * 9-Volt Power Adaptor with (+)(-) Plug Attachment
+
+  ![9V Adaptor](./Images/9VAdaptor.png)
 
   * Solenoid Lock
 
+  ![Solenoid Lock](./Images/SolenoidLock.png)
+
   * 15 Male-To-Male Jumper Wires
+
+  ![M-M Wire](./Images/MMWires.png)
 
   * 11 Male-To-Female Jumper Wires
 
+  ![M-F](./Images/MFWires.png)
+
   * Solderless Breadboard *(The smaller, the better)*
+
+  ![Breadboard](./Images/Breadboard.png)
 
   * Serial-To-USB Cable
 
+  ![Serial Cable](./Images/SerialWire.png)
+
   * *Optional*: Lock Unit Case
+
+  ![Case Outside](./Images/CaseOutside.png)
+
+  ![Case Inside](./Images/CaseInside.png)
 
 * Other Components
 
   * RFID Tags
+
+  ![RFID Tags](./Images/RFIDTags.png)
 
   * Windows Computer
 
@@ -138,9 +168,9 @@ Experience in fields that were either completely or relatively new to me include
 
     * Insert the Female ends of the Wires into the RFID Scanner's pins
 
-    * The IRQ connection will not be used; you do not have to attach a wire to that connector
+      * The IRQ connection will not be used; you do not have to attach a wire to that connector
 
-    * It is recommended that a empty plug is placed on the IRQ pin so as to cover it from the elements
+      * It is recommended that a empty plug is placed on the IRQ pin so as to cover it from the elements
 
     * Plug in the Male ends of the wires into the Arduino in the following configuration:
 
@@ -369,13 +399,155 @@ Experience in fields that were either completely or relatively new to me include
 
 ## Running
 
+Included in the code repository is a Python program titled "RunAll."
+
 ## *Lock Unit*
 
-***Placeholder***
+1. Ensure that the lock unit is running correctly
+
+    * Plug in the lock unit(s) to the computer system that has the MySQL Database installed
+
+    * Run the EverEyePassiveLock program related to the lock unit(s) connected
+
+2. Wave a RFID tag that has been registered and authorized for the lock near the RFID Scanner
+
+    * If the RFID tag has not been registered, the LCD will display a message saying so, a log will be entered into database, and the lock unit will return to its default state
+
+    * This will also happen if the RFID has been registered, but was not authorized for the lock in question
+
+3. When prompted, enter in the password associated with the RFID tag scanned and press # to submit
+
+    * If the password entered does not match the password associated with the RFID tag scanned, the LCD will display a message saying so, a log will be entered into database, and the lock unit will return to its default state
+
+4. If the password is correct, the LCD will state that the lock is open, which it will be for about 5 seconds.
+
+    * Once that time  elapses, the lock will close and the lock will return to its default state
+
+    * A log will be entered into the database that states the entry was successful
 
 ## *GUI Program*
 
-***Placeholder***
+### *Log-In Screen*
+
+1. Run the Python program "EverEyeProgram.py"
+
+2. At the Log-In screen, enter in the password **Dolphins** and press *Submit*
+
+3. When you've successfully logged in, you will be greeted with the following menu:
+
+   ![Main Menu](./Images/MainMenu.png)
+
+4. Press one of the six available buttons to proceed to that screen
+
+### *Create User*
+
+1. When you press **Create User**, you will see the following screen:
+
+   ![Create User](./Images/CreateEditUser.png)
+
+2. Press the *Scan RFID Tag* button to scan in the new User's RFID tag
+
+      * This will prompt the primary lock to scan for a RFID tag
+
+3. Enter in the new User's first name in the next entry box
+
+4. Enter in the new User's last name in the next entry box
+
+5. Press the *Enter Password* button to enter in the new User's Password
+
+      * This will prompt the primary lock to activate the keypad
+
+      * Enter in the password and press # to submit
+
+        * The password must be at least 6 characters long
+
+6. Check the locks that the user will have access to
+
+7. Press *Submit* to create the new user
+
+      * A pop-up window will appear saying that the user was successfully created
+
+        * Press *Confirm* to return to the Main Menu
+
+      * If something went wrong, a pop-up window will appear and state what happened
+
+        * Press *Confirm* to return to the **Create User** screen
+
+### *Edit User*
+
+1. When you press **Edit User**, you will see the following screen:
+
+    ![Select User](./Images/SelectUser.png)
+
+2. Select the User you wish to edit and press **Edit User**
+
+3. You will be taken to the **Create User* Screen, but with the existing User's information already filled
+
+4. See the **Create User** section for more information
+
+### *Delete User*
+
+1. When you press **Delete User**, you will see the following screen:
+
+    ![Delete User](./Images/UserDelete.png)
+
+2. Select the User you wish to delete and press **Delete User**
+
+3. A pop-up window will appear asking you to confirm the delete; press **Yes** to delete the User
+
+### *Access Logs*
+
+1. When you press **Access Logs**, you will see the following screen:
+
+    ![Access Logs Filter](./Images/LogsSelect.png)
+
+2. Select the parameter you wish to sort the logs by
+
+3. If **User** was selected, you will see a list of Users as shown below:
+  
+     * Select the user you wish to see the logs for and press **Show Logs**
+
+     ![Access Logs User](./Images/AccessLogsUser.png)
+
+4. If **Lock** was selected, you will see a list of Locks as shown below:
+  
+     * Select the lock you wish to see the logs for and press **Show Logs**
+
+     ![Access Logs Lock](./Images/AccessLogsLock.png)
+
+5. If **Date** was selected, you will see a calendar as shown below:
+  
+     * Select the date you wish to see the logs for and press **Show Logs**
+
+     ![Access Logs Date](./Images/AccessLogsDate.png)
+
+6. Regardless of the filter you have chosen, you will be taken to a screen that shows the requisite logs, as seen below:
+
+      ![Access Logs](./Images/Logs.png)
+
+7. To export the current list of logs, Press the **Export Logs** button
+
+    * You will see a pop-up menu where you can type in the name of the file you wish to create
+
+    * Press **Export** to export the list of logs to the "Logs" folder as a .csv file
+
+### *Open Lock*
+
+1. When you press **Open Locks**, you will see the following screen:
+
+    ![Open Lock](./Images/OpenLocks.png)
+
+2. Select the Lock that you wish to open to open the lock for 5 seconds
+
+    * Make sure that the lock you are selecting is connected
+
+    * If the lock is not connected, the program will freeze up as it tries to communicate with it
+
+### *Log Off*
+
+* This will lead you back to the log-in screen
+
+* Go to that section for instructions
 
 ---
 
