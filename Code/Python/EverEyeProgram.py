@@ -713,6 +713,7 @@ class createAndEditUser(tkinter.Frame):
         self.errorWindowKeyIDButton['command'] = lambda: self.errorWindowKeyID.destroy()
 
     def submitToDatabase(self):
+        self.successFlag = 0
         self.userDatabase = databaseConnection.connectToDatabase()
         self.userCursor = databaseConnection.createCursor(self.userDatabase)
 
@@ -724,12 +725,14 @@ class createAndEditUser(tkinter.Frame):
                     self.addLockPermission(1)
                 if self.userLock2Authorization.get() == 1:
                     self.addLockPermission(2)
+                self.successFlag = 1
             except mysql.connector.Error as err:
                 if err.errno == 1062:
                     self.databaseErrorExistingKeyID()
                     print("Error " + str(err.errno))
                 else:
                     print("Error " + str(err))
+                self.successFlag = 0
         else:
             self.userQuerry = "UPDATE users SET keyID = \"%s\", firstName = \"%s\", lastName = \"%s\", userPassword = \"%s\" WHERE userID = %s;"
             try:
@@ -744,46 +747,49 @@ class createAndEditUser(tkinter.Frame):
                         self.addLockPermission(2)
                     else:
                         self.removeLockPermission(2)
+                self.successFlag = 1
             except mysql.connector.Error as err:
                 if err.errno == 1062:
                     self.databaseErrorExistingKeyID()
                 else:
                     print("Error " + str(err))
+                self.successFlag = 0
 
         databaseConnection.disconnectFromDatabase(self.userDatabase, self.userCursor)
 
-        self.userConfirmWindow = tkinter.Toplevel(self)
-        self.userConfirmWindow.geometry('250x100')
-        self.userConfirmWindow.title("Success")
-        self.userConfirmWindow.grab_set()
+        if (self.successFlag == 1):
+            self.userConfirmWindow = tkinter.Toplevel(self)
+            self.userConfirmWindow.geometry('250x100')
+            self.userConfirmWindow.title("Success")
+            self.userConfirmWindow.grab_set()
 
-        if self.master.editFlag == 0:
-            self.userConfirmWindowLabel = tkinter.Label(
-                self.userConfirmWindow,
-                text = "User " + self.userFirstName.get() + " " + self.userLastName.get() + "\nsuccessfully created",
-                font = ('Helvetica', 12)
-            )
+            if self.master.editFlag == 0:
+                self.userConfirmWindowLabel = tkinter.Label(
+                    self.userConfirmWindow,
+                    text = "User " + self.userFirstName.get() + " " + self.userLastName.get() + "\nsuccessfully created",
+                    font = ('Helvetica', 12)
+                )
+                self.userConfirmWindowLabel.pack(
+                    ipady = 10
+                )
+            else:
+                self.userConfirmWindowLabel = tkinter.Label(
+                    self.userConfirmWindow,
+                    text = "User " + self.userFirstName.get() + " " + self.userLastName.get() + "\nsuccessfully edited",
+                    font = ('Helvetica', 12)
+                )
             self.userConfirmWindowLabel.pack(
                 ipady = 10
             )
-        else:
-            self.userConfirmWindowLabel = tkinter.Label(
-                self.userConfirmWindow,
-                text = "User " + self.userFirstName.get() + " " + self.userLastName.get() + "\nsuccessfully edited",
-                font = ('Helvetica', 12)
-            )
-            self.userConfirmWindowLabel.pack(
-                ipady = 10
-            )
 
-        self.userConfirmWindowButton = tkinter.Button(
-            self.userConfirmWindow,
-            text = "Confirm",
-            width = 10,
-            height = 1
-        )
-        self.userConfirmWindowButton.pack()
-        self.userConfirmWindowButton['command'] = lambda: self.master.switchFrame(mainMenu)  
+            self.userConfirmWindowButton = tkinter.Button(
+                    self.userConfirmWindow,
+                    text = "Confirm",
+                    width = 10,
+                    height = 1
+                )
+            self.userConfirmWindowButton.pack()
+            self.userConfirmWindowButton['command'] = lambda: self.master.switchFrame(mainMenu)  
 
     def keyIDSubmit(self):
         self.keyID = self.master.socketCommunication('1', 1)
