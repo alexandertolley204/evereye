@@ -399,7 +399,7 @@ Experience in fields that were either completely or relatively new to me include
 
 ## Running
 
-Included in the code repository is a Python program titled "RunAll."
+Included in the code repository is a Python program titled "RunAll." You may run this to run both passive lock programs as well as the GUI program all at once. You may otherwise run each program as the need arises.
 
 ## *Lock Unit*
 
