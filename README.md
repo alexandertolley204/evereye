@@ -395,6 +395,8 @@ Experience in fields that were either completely or relatively new to me include
 
 As this is considered optional, no formal instructions will be given. The packaging that was used for the Capstone was 6x4x2 in size, which proved to be a snug fit depending upon the length of wire used. The following are some helpful tips to keep in mind while constructing the case:
 
+   ![LockUnitInCase](./Images/LockUnitCase.jpg)
+
 * There will be 5 holes nessessary for various components to fit through. Those components are:
 
   * USB-to-Serial Cable
