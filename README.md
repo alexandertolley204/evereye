@@ -241,7 +241,7 @@ Experience in fields that were either completely or relatively new to me include
       | Relay | Arduino |
       | :-: | :-: |  
       | DC- | GND |
-      | Out | A1 |
+      | In | A1 |
 
 6. Connect the Breadboard to the Arduino Mega
 
@@ -393,8 +393,21 @@ Experience in fields that were either completely or relatively new to me include
 
 ## *Packaging*
 
-***Placeholder***
+As this is considered optional, no formal instructions will be given. The packaging that was used for the Capstone was 6x4x2 in size, which proved to be a snug fit depending upon the length of wire used. The following are some helpful tips to keep in mind while constructing the case:
 
+* There will be 5 holes nessessary for various components to fit through. Those components are:
+
+  * USB-to-Serial Cable
+    
+  * 9-Volt Adapter
+    
+  * Soloneid Lock
+  
+  * Keypad
+  
+  * LCD Display
+  
+* 
 ---
 
 ## Running
@@ -581,5 +594,7 @@ Icons by Freepix: <https://www.flaticon.com/authors/freepik>
 I would like to thank my Capstone Advisor, Professor Jason Isaacs, for his assistance and advice during the creation of this project. He has provided invaluable aid both in the formulation of this project and its design, including providing many of the hardware components that make up the lock unit as well as emphasizing the multi-lock functionality and lock export capability of the security suite.
 
 I would also like to thank my former Capstone Advisor, Professor Reza Abdolee, for initially taking me on for the Capstone Project and recommending me Professor Jason Isaacs as a better fit for my expertise.
+
+I would also like to thank my father, David Tolley, for his assistance in preparing the lock unit's case. Without him, this project would be nothing more than a bundle of wires and electronics.
 
 Finally, I would like to thank all of my other professor that I've had during my time at California State University Channel Islands. It is thanks to you all that I was able to reach this point.
