@@ -407,15 +407,15 @@ As this is considered optional, no formal instructions will be given. The packag
   
   * LCD Display
   
-* The holes needed for the USB-to-Serial Cable, the 9-Volt Adapter, and the Solenoid Lock are similar in size and shape.
+* The holes needed for the USB-to-Serial Cable, the 9-Volt Adapter, and the Solenoid Lock are similar in size and shape
   
   * Roughly the size of one's pinky finger should be more than enough space
 
 * For the Keypad, a long, thin hole to fit the connection through is required
 
-* The most difficult hole to make will be for the LCD Display. How you tackle it is up to you.
+* The most difficult hole to make will be for the LCD Display. How you tackle it is up to you
 
-* Unless you designate where is it on the lock unit's exterior, the best place to put the RFID Scanner would likely be underneath the keypad inside the case.
+* Unless you designate where is it on the lock unit's exterior, the best place to put the RFID Scanner would likely be underneath the keypad inside the case
 ---
 
 ## Running
