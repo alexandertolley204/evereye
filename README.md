@@ -72,9 +72,9 @@ Experience in fields that were either completely or relatively new to me include
 
   ![Relay](./Images/Relay.png)
 
-  * 9-Volt Power Adaptor with (+)(-) Plug Attachment
+  * 12-Volt Power Adaptor with (+)(-) Plug Attachment
 
-  ![9V Adaptor](./Images/9VAdaptor.png)
+  ![12V Adaptor](./Images/9VAdaptor.png)
 
   * Solenoid Lock
 
@@ -152,7 +152,7 @@ Experience in fields that were either completely or relatively new to me include
 
     * Relay
 
-    * 9-Volt Power Adaptor
+    * 12-Volt Power Adaptor
 
     * Solenoid Lock
 
@@ -253,9 +253,9 @@ Experience in fields that were either completely or relatively new to me include
 
     * Loosen the Screws on the Adapter's connections
 
-    * Insert the wire connected to the Relay's NO socket into the (-) socket of the Adapter
+    * Insert the wire connected to the Relay's NO socket into the (+) socket of the Adapter
 
-    * Take a Male-To-Male jumper wire and insert one end into the (+) socket of the Adapter
+    * Take a Male-To-Male jumper wire and insert one end into the (-) socket of the Adapter
 
     * Tighten the screws to secure the connection
 
@@ -263,7 +263,7 @@ Experience in fields that were either completely or relatively new to me include
 
     * Insert the COM wire on the Relay into the Red Wire of the Solenoid Lock
 
-    * Insert the (+) wire from the 9V Adapter into the Black Wire of the Solenoid Lock
+    * Insert the (-) wire from the 9V Adapter into the Black Wire of the Solenoid Lock
 
 ## *Software*
 
@@ -401,7 +401,7 @@ As this is considered optional, no formal instructions will be given. The packag
 
   * USB-to-Serial Cable
     
-  * 9-Volt Adapter
+  * 12-Volt Adapter
     
   * Solonoid Lock
   
