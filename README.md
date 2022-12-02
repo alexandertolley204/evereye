@@ -418,6 +418,9 @@ As this is considered optional, no formal instructions will be given. The packag
 * The most difficult hole to make will be for the LCD Display. How you tackle it is up to you
 
 * Unless you designate where is it on the lock unit's exterior, the best place to put the RFID Scanner would likely be underneath the keypad inside the case
+
+* It is highly recommended that you put as much of the solenoid lock related equipment (the lock itself, the 12v adapter and plug, etc.) outside the case. If placed inside, it may cause interfearance with the rest of the components.
+
 ---
 
 ## Running
