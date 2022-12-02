@@ -74,7 +74,7 @@ Experience in fields that were either completely or relatively new to me include
 
   * 12-Volt Power Adaptor with (+)(-) Plug Attachment
 
-  ![12V Adaptor](./Images/9VAdaptor.png)
+  ![12V Adaptor](./Images/12VAdaptor.png)
 
   * Solenoid Lock
 
@@ -397,13 +397,13 @@ As this is considered optional, no formal instructions will be given. The packag
 
    ![LockUnitInCase](./Images/LockUnitCase.jpg)
 
-* There will be 5 holes nessessary for various components to fit through. Those components are:
+* There will be 5 holes necessary for various components to fit through. Those components are:
 
   * USB-to-Serial Cable
-    
+
   * 12-Volt Adapter
-    
-  * Solonoid Lock
+
+  * Solenoid Lock
   
   * Keypad
   
